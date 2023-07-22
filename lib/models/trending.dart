@@ -1,34 +1,17 @@
-class TrendingData {
-  final List<TrendingSongs> songs;
-  TrendingData({required this.songs});
+import 'album.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-  factory TrendingData.fromJson(Map<String, dynamic>? data) {
-    if (data == null) {
-      throw Exception("Failed to parse Trending data. JSON is null.");
-    }
+part 'trending.g.dart';
 
-    if (!data.containsKey("data")) {
-      throw Exception("Failed to parse Trending data. 'data' key is missing.");
-    }
+@JsonSerializable(explicitToJson: true)
+class Trending {
+  List<Album> songs;
+  List<Album> albums;
 
-    final List<dynamic> songList = data['data']['trending']['songs'];
-    final List<TrendingSongs> songs =
-        songList.map((dynamic song) => TrendingSongs.fromjson(song)).toList();
-    return TrendingData(songs: songs);
-  }
-}
+  Trending({required this.songs, required this.albums});
 
-class TrendingSongs {
-  TrendingSongs({required this.id, required this.name, required this.image});
+  factory Trending.fromJson(Map<String, dynamic> json) =>
+      _$TrendingFromJson(json);
 
-  final String id;
-  final String name;
-  final String image;
-
-  factory TrendingSongs.fromjson(Map<String, dynamic> data) {
-    return TrendingSongs(
-        id: data["id"] ,
-        name: data["name"],
-        image: data["image"][1] as String);
-  }
+  Map<String, dynamic> toJson() => _$TrendingToJson(this);
 }
