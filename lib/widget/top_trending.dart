@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:music/screens/song_screen.dart';
+import '../models/models.dart';
+import '../screens/song_screen.dart';
 
-import '../models/album.dart';
-import '../models/song.dart';
-
-class hello extends StatelessWidget {
-  const hello({super.key, required this.trendingSongs});
-  final List<Song> trendingSongs;
+class Trending extends StatelessWidget {
+  const Trending({super.key, required this.trendingSongs});
+  final List<ModuleSong> trendingSongs;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,10 +23,13 @@ class hello extends StatelessWidget {
             builder: (BuildContext context) {
               return GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
                       builder: (ctx) => SongScreen(
-                            url: song.url ?? '',
-                          )));
+                        url: song.url,
+                      ),
+                    ),
+                  );
                 },
                 child: Container(
                   // width: MediaQuery.of(context).size.width,
@@ -52,7 +53,7 @@ class hello extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: Image.network(
-                          song.image?[2].link ?? '',
+                          song.image[2].link,
                           fit: BoxFit.fill,
                           width: MediaQuery.of(context).size.width,
                           height: 190,
@@ -63,7 +64,7 @@ class hello extends StatelessWidget {
                         height: 6,
                       ),
                       Text(
-                        song.name ?? '',
+                        song.name,
                         overflow: TextOverflow.ellipsis,
                         style: GoogleFonts.ebGaramond(
                             textStyle: const TextStyle(fontSize: 15)),
@@ -72,7 +73,7 @@ class hello extends StatelessWidget {
                         height: 0.5,
                       ),
                       Text(
-                        song.name ?? "",
+                        song.name,
                         style: GoogleFonts.openSans(fontSize: 10),
                       )
                     ],

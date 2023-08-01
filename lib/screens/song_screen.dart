@@ -20,7 +20,6 @@ class SongScreen extends StatelessWidget {
           } else if (snapshot.data == null) {
             return const Text("No data available");
           } else {
-           
             print(songList);
             return Padding(
               padding:
