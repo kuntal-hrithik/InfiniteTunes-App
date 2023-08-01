@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widget/albums.dart';
 import '../widget/charts.dart';
-import '../widget/playList.dart';
+import '../widget/playlist.dart';
 import '../widget/top_trending.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
           } else if (snapshot.data == null) {
             return const Text("No data available");
           } else {
-            final trendingSongs = snapshot.data?.trending?.songs;
+            final trendingSongs = snapshot.data?.trending.songs;
             final topPlayList = snapshot.data?.playlists;
             final charts = snapshot.data?.charts;
             final albums = snapshot.data?.albums;
@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    hello(
+                    Trending(
                       trendingSongs: trendingSongs!,
                     ),
                     const SizedBox(

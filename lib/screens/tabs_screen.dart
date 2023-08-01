@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music/screens/home_screen.dart';
-import 'package:music/screens/search_screen.dart';
+import 'home_screen.dart';
+import 'search_screen.dart';
 
 class TabsScreen extends StatefulWidget {
   const TabsScreen({super.key});

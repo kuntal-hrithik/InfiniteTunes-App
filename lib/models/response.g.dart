@@ -1,23 +1,23 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 't_response.dart';
+part of 'response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TResponse<T> _$TResponseFromJson<T>(
+Response<T> _$ResponseFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    TResponse<T>(
-      status: json['status'] as String?,
+    Response<T>(
+      status: json['status'] as String,
       message: json['message'] as String?,
       data: fromJsonT(json['data']),
     );
 
-Map<String, dynamic> _$TResponseToJson<T>(
-  TResponse<T> instance,
+Map<String, dynamic> _$ResponseToJson<T>(
+  Response<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
@@ -26,18 +26,19 @@ Map<String, dynamic> _$TResponseToJson<T>(
       'data': toJsonT(instance.data),
     };
 
-TSearchResponse<T> _$TSearchResponseFromJson<T>(
+SearchResponse<T> _$SearchResponseFromJson<T>(
   Map<String, dynamic> json,
   T Function(Object? json) fromJsonT,
 ) =>
-    TSearchResponse<T>(
-      total: json['total'] as int?,
+    SearchResponse<T>(
+      total: json['total'] as int,
       start: json['start'] as int?,
+      lastPage: json['lastPage'] as bool?,
       results: (json['results'] as List<dynamic>).map(fromJsonT).toList(),
-    )..lastPage = json['lastPage'] as bool?;
+    );
 
-Map<String, dynamic> _$TSearchResponseToJson<T>(
-  TSearchResponse<T> instance,
+Map<String, dynamic> _$SearchResponseToJson<T>(
+  SearchResponse<T> instance,
   Object? Function(T value) toJsonT,
 ) =>
     <String, dynamic>{
