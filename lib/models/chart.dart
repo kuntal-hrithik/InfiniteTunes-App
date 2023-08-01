@@ -3,7 +3,7 @@ import 'download_url.dart';
 
 part 'chart.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, checked: true)
 class Chart {
   String? id;
   String? title;

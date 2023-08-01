@@ -1,11 +1,13 @@
 import 'album.dart';
 import 'package:json_annotation/json_annotation.dart';
 
+import 'song.dart';
+
 part 'trending.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, checked: true)
 class Trending {
-  List<Album> songs;
+  List<Song> songs;
   List<Album> albums;
 
   Trending({required this.songs, required this.albums});

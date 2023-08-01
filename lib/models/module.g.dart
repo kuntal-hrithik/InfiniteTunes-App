@@ -6,19 +6,34 @@ part of 'module.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Module _$ModuleFromJson(Map<String, dynamic> json) => Module(
-      albums: (json['albums'] as List<dynamic>?)
-          ?.map((e) => Album.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      playlists: (json['playlists'] as List<dynamic>?)
-          ?.map((e) => Playlist.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      charts: (json['charts'] as List<dynamic>?)
-          ?.map((e) => Chart.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      trending: json['trending'] == null
-          ? null
-          : Trending.fromJson(json['trending'] as Map<String, dynamic>),
+Module _$ModuleFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Module',
+      json,
+      ($checkedConvert) {
+        final val = Module(
+          albums: $checkedConvert(
+              'albums',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Album.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          playlists: $checkedConvert(
+              'playlists',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Playlist.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          charts: $checkedConvert(
+              'charts',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Chart.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          trending: $checkedConvert(
+              'trending',
+              (v) => v == null
+                  ? null
+                  : Trending.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$ModuleToJson(Module instance) => <String, dynamic>{

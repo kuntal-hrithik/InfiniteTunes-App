@@ -4,7 +4,7 @@ import 'models.dart';
 
 part 'module.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, checked: true)
 class Module {
   List<Album>? albums;
   List<Playlist>? playlists;

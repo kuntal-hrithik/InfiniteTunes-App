@@ -3,7 +3,7 @@ import 'models.dart';
 
 part 'song.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, checked: true)
 class Song {
   String? id;
   String? name;

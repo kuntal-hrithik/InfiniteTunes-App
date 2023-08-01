@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 import '../models/models.dart';
 import '../utils/utils.dart';
 
@@ -46,7 +45,8 @@ class JioSaavnApi {
             (json) =>
                 (json as List<dynamic>).map((s) => Song.fromJson(s)).toList(),
           );
-  }
+          
+          }
 
   Future<Album> getAlbumDetails(String query) async {
     return isJioSaavnLink(query)

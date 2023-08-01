@@ -6,18 +6,28 @@ part of 'chart.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Chart _$ChartFromJson(Map<String, dynamic> json) => Chart(
-      id: json['id'] as String?,
-      title: json['title'] as String?,
-      subtitle: json['subtitle'] as String?,
-      type: json['type'] as String?,
-      image: (json['image'] as List<dynamic>?)
-          ?.map((e) => DownloadUrl.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      url: json['url'] as String?,
-      firstname: json['firstname'] as String?,
-      explicitContent: json['explicitContent'] as String?,
-      language: json['language'] as String?,
+Chart _$ChartFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Chart',
+      json,
+      ($checkedConvert) {
+        final val = Chart(
+          id: $checkedConvert('id', (v) => v as String?),
+          title: $checkedConvert('title', (v) => v as String?),
+          subtitle: $checkedConvert('subtitle', (v) => v as String?),
+          type: $checkedConvert('type', (v) => v as String?),
+          image: $checkedConvert(
+              'image',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => DownloadUrl.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          url: $checkedConvert('url', (v) => v as String?),
+          firstname: $checkedConvert('firstname', (v) => v as String?),
+          explicitContent:
+              $checkedConvert('explicitContent', (v) => v as String?),
+          language: $checkedConvert('language', (v) => v as String?),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$ChartToJson(Chart instance) => <String, dynamic>{

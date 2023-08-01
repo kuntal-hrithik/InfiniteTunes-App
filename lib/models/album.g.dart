@@ -6,30 +6,47 @@ part of 'album.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Album _$AlbumFromJson(Map<String, dynamic> json) => Album(
-      id: json['id'] as String?,
-      name: json['name'] as String?,
-      type: json['type'] as String?,
-      year: json['year'] as String?,
-      releaseDate: json['releaseDate'] as String?,
-      playCount: json['playCount'] as String?,
-      language: json['language'] as String?,
-      explicitContent: json['explicitContent'] as String?,
-      songCount: json['songCount'] as String?,
-      url: json['url'] as String?,
-      primaryArtistsId: json['primaryArtistsId'] as String?,
-      featuredArtists: (json['featuredArtists'] as List<dynamic>?)
-          ?.map((e) => Artist.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      artists: (json['artists'] as List<dynamic>?)
-          ?.map((e) => Artist.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      image: (json['image'] as List<dynamic>?)
-          ?.map((e) => DownloadUrl.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      songs: (json['songs'] as List<dynamic>?)
-          ?.map((e) => Song.fromJson(e as Map<String, dynamic>))
-          .toList(),
+Album _$AlbumFromJson(Map<String, dynamic> json) => $checkedCreate(
+      'Album',
+      json,
+      ($checkedConvert) {
+        final val = Album(
+          id: $checkedConvert('id', (v) => v as String?),
+          name: $checkedConvert('name', (v) => v as String?),
+          type: $checkedConvert('type', (v) => v as String?),
+          year: $checkedConvert('year', (v) => v as String?),
+          releaseDate: $checkedConvert('releaseDate', (v) => v as String?),
+          playCount: $checkedConvert('playCount', (v) => v as String?),
+          language: $checkedConvert('language', (v) => v as String?),
+          explicitContent:
+              $checkedConvert('explicitContent', (v) => v as String?),
+          songCount: $checkedConvert('songCount', (v) => v as String?),
+          url: $checkedConvert('url', (v) => v as String?),
+          primaryArtistsId:
+              $checkedConvert('primaryArtistsId', (v) => v as String?),
+          featuredArtists: $checkedConvert(
+              'featuredArtists',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Artist.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          artists: $checkedConvert(
+              'artists',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Artist.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          image: $checkedConvert(
+              'image',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => DownloadUrl.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+          songs: $checkedConvert(
+              'songs',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Song.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$AlbumToJson(Album instance) => <String, dynamic>{

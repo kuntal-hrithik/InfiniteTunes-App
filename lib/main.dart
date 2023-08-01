@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:music/screens/home_screen.dart';
-import 'package:music/screens/tabs_screen.dart';
+
+import 'screens/tabs_screen.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");

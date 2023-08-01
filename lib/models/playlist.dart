@@ -4,7 +4,7 @@ import 'models.dart';
 
 part 'playlist.g.dart';
 
-@JsonSerializable(explicitToJson: true)
+@JsonSerializable(explicitToJson: true, checked: true)
 class Playlist {
   String? id;
   String? userId;
