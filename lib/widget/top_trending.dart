@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../models/models.dart';
-import '../screens/song_screen.dart';
+import '../screens/songDetail_scree.dart';
 
 class Trending extends StatelessWidget {
   const Trending({super.key, required this.trendingSongs});
   final List<ModuleSong> trendingSongs;
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,8 +26,8 @@ class Trending extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (ctx) => SongScreen(
-                        url: song.url,
+                      builder: (ctx) => SongDetailScreen(
+                        song: song,
                       ),
                     ),
                   );
