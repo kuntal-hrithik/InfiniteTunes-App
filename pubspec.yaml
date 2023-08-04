@@ -37,6 +37,9 @@ dependencies:
   google_fonts: ^5.1.0
   json_annotation: ^4.8.1
   build_runner: ^2.4.6
+  just_audio: ^0.9.31
+  audio_service: ^0.18.9
+  audioplayers: ^5.0.0
 
 dev_dependencies:
   flutter_test:

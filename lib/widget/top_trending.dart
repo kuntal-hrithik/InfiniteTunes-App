@@ -27,7 +27,7 @@ class Trending extends StatelessWidget {
                   Navigator.of(context).push(
                     MaterialPageRoute(
                       builder: (ctx) => SongDetailScreen(
-                        song: song,
+                        id: song.id,
                       ),
                     ),
                   );

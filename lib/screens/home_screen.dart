@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             final charts = snapshot.data?.charts;
             final albums = snapshot.data?.albums;
             return ListView(
+              physics: const BouncingScrollPhysics(),
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
