@@ -6,6 +6,7 @@ void main() async {
   await dotenv.load();
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(

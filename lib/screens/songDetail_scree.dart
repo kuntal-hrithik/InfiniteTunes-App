@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../api/jio_saavn.dart';
-import '../models/module.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/song.dart';
@@ -14,10 +13,10 @@ class SongDetailScreen extends StatefulWidget {
 }
 
 class _SongDetailScreenState extends State<SongDetailScreen> {
-  AudioPlayer _audioPlayer = AudioPlayer();
+  final AudioPlayer _audioPlayer = AudioPlayer();
   bool _isPlaying = false;
-  Duration _totalDuration = Duration();
-  Duration _currentPosition = Duration();
+  Duration _totalDuration = const Duration();
+  Duration _currentPosition = const Duration();
   double _currentSliderValue = 0.0;
   late List<Song> song;
 
@@ -37,7 +36,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
 
     _audioPlayer.positionStream.listen((position) {
       setState(() {
-        _currentPosition = position ?? Duration.zero;
+        _currentPosition = position;
         _currentSliderValue = _currentPosition.inSeconds.toDouble();
       });
     });
@@ -54,7 +53,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
 
   void _play() async {
     if (!_isPlaying) {
-      await _audioPlayer.setUrl(song[0].downloadUrl[0].link);
+      await _audioPlayer.setUrl(song[0].downloadUrl[2].link);
       await _audioPlayer.play();
       setState(() {
         _isPlaying = true;
@@ -81,7 +80,7 @@ class _SongDetailScreenState extends State<SongDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(""),
+          title:const Text(""),
         ),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 130, horizontal: 50),

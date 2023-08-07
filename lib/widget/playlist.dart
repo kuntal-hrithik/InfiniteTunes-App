@@ -9,22 +9,20 @@ class PlayList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(
-            builder: (ctx) => PlayListScreen(
-                  id: topPlayList[0].id,
-                )));
-      },
-      child: Container(
-        height: 250,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(color: Color.fromARGB(255, 35, 35, 35)),
-        child: ListView.builder(
-          itemCount: topPlayList.length,
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) {
-            return SizedBox(
+    return Container(
+      height: 250,
+      width: MediaQuery.of(context).size.width,
+      decoration: const BoxDecoration(color: Color.fromARGB(255, 35, 35, 35)),
+      child: ListView.builder(
+        itemCount: topPlayList.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (ctx) => PlayListScreen(id: topPlayList[index].id)));
+            },
+            child: SizedBox(
               width: 200,
               child: Card(
                 child: Column(
@@ -42,9 +40,9 @@ class PlayList extends StatelessWidget {
                   ],
                 ),
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }

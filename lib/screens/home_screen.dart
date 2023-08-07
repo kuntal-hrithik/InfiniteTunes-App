@@ -4,7 +4,6 @@ import '../widget/charts.dart';
 import '../widget/playlist.dart';
 import '../widget/top_trending.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../api/jio_saavn.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -35,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           } else if (snapshot.hasError) {
-            print('${snapshot.error}');
           } else if (snapshot.data == null) {
             return const Text("No data available");
           } else {

@@ -30,6 +30,11 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
+    configurations {
+        implementation.exclude module: 'kotlin-stdlib-jdk8'
+        implementation.exclude module: 'kotlin-stdlib-jdk7'
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../api/jio_saavn.dart';
 import '../widget/song_list.dart';
 
@@ -11,7 +9,7 @@ class PlayListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(""),
+        title:const Text(""),
       ),
       body: FutureBuilder(
         future: api.getPlaylistDetails(id),
@@ -19,13 +17,12 @@ class PlayListScreen extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           } else if (snapshot.hasError) {
-            print('${snapshot.error}');
           } else if (snapshot.data == null) {
             return const Text("No data available");
           }
           final playList = snapshot.data!;
           return SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics:const BouncingScrollPhysics(),
             child: Center(
               child: Column(
                 children: [
@@ -36,20 +33,20 @@ class PlayListScreen extends StatelessWidget {
                       child: Image.network(playList.image[0].link),
                     ),
                   ),
-                  SizedBox(
+                 const SizedBox(
                     height: 10,
                   ),
                   Text(
                     playList.name,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(fontSize: 20),
+                    style:const TextStyle(fontSize: 20),
                   ),
                   Text(
                     "${playList.songCount} ${playList.songCount == "1" ? "Song" : "Songs"}",
                   ),
                   Text("playlist . ${playList.followerCount}"),
                   Padding(
-                    padding: EdgeInsets.only(top: 8),
+                    padding:const EdgeInsets.only(top: 8),
                     child: SongList(songs: playList.songs),
                   )
                 ],
